@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Link } from "expo-router";
+import React, { useState } from "react";
 import {
   Image,
   StyleSheet,
@@ -7,6 +8,7 @@ import {
   View,
   Button,
   Alert,
+  ScrollView,
 } from "react-native";
 
 export default function Cadastro() {
@@ -16,57 +18,61 @@ export default function Cadastro() {
   const [cpf, setCpf] = useState("");
 
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require("../../assets/images/tiger.jpg")}
-      />
-      <Text style={styles.title}>AvB</Text>
-      <View style={styles.separator} />
-      <TextInput
-        style={styles.ctexto}
-        placeholder="Nome"
-        placeholderTextColor="#000"
-        textAlign="center"
-        value={name}
-        onChangeText={setName}
-      />
-      <TextInput
-        style={styles.ctexto}
-        placeholder="Email"
-        placeholderTextColor="#000"
-        textAlign="center"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.ctexto}
-        placeholder="Data de Nascimento"
-        placeholderTextColor="#000"
-        textAlign="center"
-        value={birth}
-        onChangeText={setBirth}
-      />
-      <TextInput
-        style={styles.ctexto}
-        placeholder="CPF"
-        placeholderTextColor="#000"
-        textAlign="center"
-        value={cpf}
-        onChangeText={setCpf}
-      />
-      <Button
-        title="Salvar"
-        color="#841584"
-        onPress={() => Alert.alert("Salvar")}
-      />
+    <ScrollView>
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={require("../../assets/images/tiger.jpg")}
+        />
+        <Text style={styles.title}>AvB</Text>
+        <View style={styles.separator} />
+        <TextInput
+          style={styles.ctexto}
+          placeholder="Nome"
+          placeholderTextColor="#000"
+          textAlign="center"
+          value={name}
+          onChangeText={setName}
+        />
+        <TextInput
+          style={styles.ctexto}
+          placeholder="Email"
+          placeholderTextColor="#000"
+          textAlign="center"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={styles.ctexto}
+          placeholder="Data de Nascimento"
+          placeholderTextColor="#000"
+          textAlign="center"
+          value={birth}
+          onChangeText={setBirth}
+        />
+        <TextInput
+          style={styles.ctexto}
+          placeholder="CPF"
+          placeholderTextColor="#000"
+          textAlign="center"
+          value={cpf}
+          onChangeText={setCpf}
+        />
+        <Button
+          title="Salvar"
+          color="#841584"
+          onPress={() => Alert.alert("Salvar")}
+        />
 
-      <Button
-        title="Voltar"
-        color="#841584"
-        onPress={() => Alert.alert("Voltar")}
-      />
-    </View>
+        <Button
+          title="Voltar"
+          color="#841584"
+          onPress={() => Alert.alert("Voltar")}
+        />
+
+        <Link href="/pages/home">Home</Link>
+      </View>
+    </ScrollView>
   );
 }
 
